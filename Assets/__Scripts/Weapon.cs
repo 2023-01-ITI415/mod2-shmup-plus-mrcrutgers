@@ -15,7 +15,8 @@ public enum eWeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
-    shield // Raise shieldLevel
+    shield, // Raise shieldLevel
+    MegaBullet
 }
 
 /// <summary>
@@ -129,6 +130,11 @@ public class Weapon : MonoBehaviour
 
         switch (type)
         {
+            case eWeaponType.MegaBullet:
+                p = MakeProjectile();
+                p.vel = vel;
+                break;
+
             case eWeaponType.blaster:
                 p = MakeProjectile();
                 p.vel = vel;
